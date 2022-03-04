@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.text {
+    font-size:xx-large;
+}
 
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<p id="date" class="text"></p>
+<p id="time" class="text"></p>
+<p id="seconds" class="text"></p>
+<button id="button" onclick="copy()" class="button">Copy</button>
+
+<script>
+
+var dateDisplay = document.getElementById("date");
+var timeDisplay = document.getElementById("time"); 
+var secondsDisplay = document.getElementById("seconds"); 
+var button = document.getElementById("button");  
+
+setInterval(refreshTime, 1000); 
+
+function refreshTime() { 
+    var now = new Date();
+  
+    var seconds = now.getTime() / 1000; 
+    seconds = Math.round(seconds); 
+    secondsDisplay.innerHTML = seconds; 
+    dateDisplay.innerHTML = now.toLocaleDateString();
+    timeDisplay.innerHTML = now.toLocaleTimeString(); 
+} 
+
+function copy() {
+    navigator.clipboard.writeText(secondsDisplay.innerHTML);
+    button.innerHTML = "Copied";
+    setTimeout(resetText, 1000);
+}
+
+function resetText() {
+    button.innerHTML = "Copy";
+}
+
+</script>
+
+</body>
+</html>

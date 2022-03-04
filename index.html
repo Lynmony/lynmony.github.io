@@ -30,20 +30,17 @@ p {
 }
 </style>
 </head>
+
 <body>
 
 <p id="date"></p>
-<p id="time"></p>
 <p id="seconds"></p>
-
 <div class="center">
     <button id="button" onclick="copy()" class="button">Copy</button>
 </div>
-
 <script>
 
 var dateDisplay = document.getElementById("date");
-var timeDisplay = document.getElementById("time"); 
 var secondsDisplay = document.getElementById("seconds"); 
 var button = document.getElementById("button");  
 
@@ -56,8 +53,7 @@ function refreshTime() {
     var seconds = now.getTime() / 1000; 
     seconds = Math.trunc(seconds); 
     secondsDisplay.innerHTML = seconds; 
-    dateDisplay.innerHTML = now.toLocaleDateString();
-    timeDisplay.innerHTML = now.toLocaleTimeString(); 
+    dateDisplay.innerHTML = now.toLocaleDateString() + " " + now.toLocaleTimeString();
 } 
 
 function copy() {

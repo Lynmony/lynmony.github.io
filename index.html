@@ -34,9 +34,10 @@ var timeDisplay = document.getElementById("time");
 var secondsDisplay = document.getElementById("seconds"); 
 var button = document.getElementById("button");  
 
-setInterval(refreshTime, 1000); 
+getCurrentTime();
+setInterval(getCurrentTime, 1000); 
 
-function refreshTime() { 
+function getCurrentTime() { 
     var now = new Date();
   
     var seconds = now.getTime() / 1000; 

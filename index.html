@@ -54,7 +54,7 @@ function refreshTime() {
     var now = new Date();
   
     var seconds = now.getTime() / 1000; 
-    seconds = Math.round(seconds); 
+    seconds = Math.trunc(seconds); 
     secondsDisplay.innerHTML = seconds; 
     dateDisplay.innerHTML = now.toLocaleDateString();
     timeDisplay.innerHTML = now.toLocaleTimeString(); 

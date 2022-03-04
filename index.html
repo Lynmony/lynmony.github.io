@@ -13,19 +13,32 @@
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    font-size : 7.5vw;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+p {
+    font-size : 7.5vw;
+    text-align: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
 </head>
 <body>
 
-<p id="date" class="text"></p>
-<p id="time" class="text"></p>
-<p id="seconds" class="text"></p>
-<button id="button" onclick="copy()" class="button">Copy</button>
+<p id="date"></p>
+<p id="time"></p>
+<p id="seconds"></p>
+
+<div class="center">
+    <button id="button" onclick="copy()" class="button">Copy</button>
+</div>
 
 <script>
 
@@ -34,10 +47,10 @@ var timeDisplay = document.getElementById("time");
 var secondsDisplay = document.getElementById("seconds"); 
 var button = document.getElementById("button");  
 
-getCurrentTime();
-setInterval(getCurrentTime, 1000); 
+refreshTime();
+setInterval(refreshTime, 1000); 
 
-function getCurrentTime() { 
+function refreshTime() { 
     var now = new Date();
   
     var seconds = now.getTime() / 1000; 
@@ -50,7 +63,7 @@ function getCurrentTime() {
 function copy() {
     navigator.clipboard.writeText(secondsDisplay.innerHTML);
     button.innerHTML = "Copied";
-    setTimeout(resetText, 1000);
+    setTimeout(resetText, 500);
 }
 
 function resetText() {
